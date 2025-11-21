@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commande - E-Shop Sécurisé</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="cart-icon"><img style="height: 85px; width: 85px;" src="Img/LOGO (2).jpg" alt=""></span>
+                <span>E-SHOP SÉCURISÉ</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">BOUTIQUE</a>
+                <a href="commande.html" class="nav-link active">COMMANDE</a>
+                <a href="verifier-commande.html" class="nav-link">VÉRIFIER COMMANDE</a>
+                <a href="#" class="nav-link">MON COMPTE</a>
+                <a href="panier.html" class="nav-link">PANIER <span id="cart-count" class="cart-badge">0</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="checkout-layout">
+                <!-- Left Section: Billing Details -->
+                <div class="billing-section">
+                    <h2>Détails de facturation</h2>
+                    <form id="checkout-form" class="checkout-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">Prénom *</label>
+                                <input type="text" id="first-name" name="firstName" required value="Jefferson">
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Nom *</label>
+                                <input type="text" id="last-name" name="lastName" required value="NOBRE">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Nom de l'entreprise (facultatif)</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country">Pays/région *</label>
+                            <select id="country" name="country" required>
+                                <option value="Benin" selected>Benin</option>
+                                <option value="Togo">Togo</option>
+                                <option value="Niger">Niger</option>
+                                <option value="Burkina Faso">Burkina Faso</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="street">Numéro et nom de rue *</label>
+                            <input type="text" id="street" name="street" required value="Rue du Lion">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="apartment">Appartement</label>
+                            <input type="text" id="apartment" name="apartment" value="Appartement 45-C">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">Ville *</label>
+                                <input type="text" id="city" name="city" required value="Parakou">
+                            </div>
+                            <div class="form-group">
+                                <label for="region">Région / Département *</label>
+                                <select id="region" name="region" required>
+                                    <option value="Borgou" selected>Borgou</option>
+                                    <option value="Atlantique">Atlantique</option>
+                                    <option value="Littoral">Littoral</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postal-code">Code postal *</label>
+                            <input type="text" id="postal-code" name="postalCode" required value="5598GB">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" required value="45972997">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Adresse e-mail *</label>
+                            <input type="email" id="email" name="email" required value="michelnono34@gmail.com">
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" id="different-address" name="differentAddress">
+                                Expédier à une adresse différente ?
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="order-notes">Notes de commande (facultatif)</label>
+                            <textarea id="order-notes" name="orderNotes" rows="4" placeholder="Commentaires concernant votre commande, ex. : consignes de livraison."></textarea>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right Section: Order Summary -->
+                <div class="order-summary-section">
+                    <h2>Votre commande</h2>
+                    <div class="order-summary">
+                        <table class="order-table">
+                            <thead>
+                                <tr>
+                                    <th>Produit</th>
+                                    <th>Sous-total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="order-items">
+                                <!-- Les articles seront chargés dynamiquement -->
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Sous-total</td>
+                                    <td id="order-subtotal">0 CFA</td>
+                                </tr>
+                                <tr>
+                                    <td>Expédition</td>
+                                    <td id="order-shipping">Free shipping</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td>Total</td>
+                                    <td id="order-total">0 CFA</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <div class="payment-method">
+                            <h3>Mode de paiement</h3>
+                            <div class="payment-option">
+                                <label>
+                                    <input type="radio" name="payment" value="delivery" checked>
+                                    <span>Paiement à la livraison</span>
+                                </label>
+                                <p class="payment-desc">Payer en argent comptant à la livraison.</p>
+                            </div>
+                        </div>
+
+                        <div class="privacy-notice">
+                            <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="#">politique de confidentialité</a>.</p>
+                        </div>
+
+                        <button id="place-order-btn" class="btn btn-primary btn-large">Commander</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Copyright © 2025 - E-shop Sécurisé.</p>
+        </div>
+    </footer>
+
+    <!-- Bibliothèque QR Code pour génération -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="script.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>
+

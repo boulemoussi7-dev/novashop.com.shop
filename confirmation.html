@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de Commande - E-Shop Sécurisé</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="cart-icon"><img style="height: 85px; width: 85px;" src="Img/LOGO (2).jpg" alt=""></span>
+                <span>E-SHOP SÉCURISÉ</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">BOUTIQUE</a>
+                <a href="commande.html" class="nav-link">COMMANDE</a>
+                <a href="verifier-commande.html" class="nav-link">VÉRIFIER COMMANDE</a>
+                <a href="#" class="nav-link">MON COMPTE</a>
+                <a href="panier.html" class="nav-link">PANIER <span id="cart-count" class="cart-badge">0</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div id="confirmation-content" class="confirmation-page">
+                <!-- Le contenu sera chargé dynamiquement -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Copyright © 2025 - E-shop Sécurisé.</p>
+        </div>
+    </footer>
+
+    <!-- Bibliothèques -->
+    <!-- QRCode Library - Essayer plusieurs CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js" 
+            onerror="loadQRCodeFallback()"
+            onload="window.qrcodeLoaded = true; console.log('QRCode chargé depuis jsdelivr')"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+            onerror="console.error('Erreur chargement jsPDF')"
+            onload="console.log('jsPDF chargé avec succès')"></script>
+    
+    <!-- Script de fallback pour QRCode -->
+    <script>
+        function loadQRCodeFallback() {
+            console.log('Tentative de chargement depuis un CDN alternatif...');
+            const script = document.createElement('script');
+            script.src = 'https://unpkg.com/qrcode@1.5.3/build/qrcode.min.js';
+            script.onload = function() {
+                window.qrcodeLoaded = true;
+                console.log('QRCode chargé depuis unpkg');
+            };
+            script.onerror = function() {
+                console.error('Impossible de charger la bibliothèque QRCode depuis tous les CDN');
+                window.qrcodeLoaded = false;
+            };
+            document.head.appendChild(script);
+        }
+    </script>
+    
+    <script src="script.js"></script>
+    <script src="confirmation.js"></script>
+</body>
+</html>
+

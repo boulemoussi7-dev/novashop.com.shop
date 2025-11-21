@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - E-Shop Sécurisé</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="cart-icon"><img style="height: 85px; width: 85px;" src="Img/LOGO (2).jpg" alt=""></span>
+                <span>E-SHOP SÉCURISÉ</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">BOUTIQUE</a>
+                <a href="commande.html" class="nav-link">COMMANDE</a>
+                <a href="verifier-commande.html" class="nav-link">VÉRIFIER COMMANDE</a>
+                <a href="#" class="nav-link">MON COMPTE</a>
+                <a href="panier.html" class="nav-link active">PANIER <span id="cart-count" class="cart-badge">0</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Panier</h1>
+
+            <div class="cart-layout">
+                <!-- Left Section: Cart Items -->
+                <div class="cart-items-section">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Produit</th>
+                                <th>Quantité</th>
+                                <th>Sous-total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-items">
+                            <!-- Les articles du panier seront chargés dynamiquement -->
+                        </tbody>
+                    </table>
+
+                    <div class="cart-actions">
+                        <div class="promo-code-section">
+                            <input type="text" id="promo-code" class="promo-input" placeholder="Code promo">
+                            <button id="apply-promo" class="btn btn-secondary">Appliquer le code promo</button>
+                        </div>
+                        <button id="update-cart" class="btn btn-update">Mettre à jour le panier</button>
+                    </div>
+                </div>
+
+                <!-- Right Section: Cart Total -->
+                <div class="cart-summary">
+                    <h2>Total panier</h2>
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Sous-total</span>
+                            <span id="subtotal">0 CFA</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Expédition</span>
+                            <span id="shipping">Free shipping</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Livraison à</span>
+                        </div>
+                        <div class="address-info">
+                            <p id="delivery-address">Rue du Lion, Appartement 45-C, Parakou, Borgou, 5598GB.</p>
+                            <a href="commande.html" class="address-link">Modifier l'adresse</a>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Total</span>
+                            <span id="total">0 CFA</span>
+                        </div>
+                    </div>
+                    <button id="checkout-btn" class="btn btn-primary btn-large">Valider la commande</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Copyright © 2025 - E-shop Sécurisé.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>
+

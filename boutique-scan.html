@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Code Retrait - E-Shop Sécurisé</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="cart-icon"><img style="height: 85px; width: 85px;" src="Img/LOGO (2).jpg" alt=""></span>
+                <span>E-SHOP SÉCURISÉ - BOUTIQUE PHYSIQUE</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">BOUTIQUE</a>
+                <a href="boutique-scan.html" class="nav-link active">SCAN CODE</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Validation de Retrait</h1>
+
+            <div class="scan-section">
+                <div class="scan-box">
+                    <h2>Scanner le Code de Retrait</h2>
+                    
+                    <!-- Onglets pour choisir le mode de scan -->
+                    <div class="scan-tabs">
+                        <button class="scan-tab active" data-tab="manual">Saisie manuelle</button>
+                        <button class="scan-tab" data-tab="camera">Scanner QR Code</button>
+                        <button class="scan-tab" data-tab="upload">Upload image</button>
+                    </div>
+
+                    <!-- Mode saisie manuelle -->
+                    <div id="manual-scan" class="scan-mode active">
+                        <div class="scan-input-group">
+                            <input type="text" id="code-input" class="code-input" placeholder="Entrez le code de retrait" autofocus>
+                            <button id="scan-btn" class="btn btn-primary">Valider</button>
+                        </div>
+                        <p class="scan-hint">Entrez le code reçu par le client</p>
+                    </div>
+
+                    <!-- Mode scan caméra -->
+                    <div id="camera-scan" class="scan-mode" style="display: none;">
+                        <div id="qr-reader" style="width: 100%; max-width: 500px; margin: 0 auto;"></div>
+                        <button id="stop-camera-btn" class="btn btn-secondary" style="display: none; margin-top: 15px;">Arrêter la caméra</button>
+                        <p class="scan-hint">Positionnez le QR Code devant la caméra</p>
+                    </div>
+
+                    <!-- Mode upload image -->
+                    <div id="upload-scan" class="scan-mode" style="display: none;">
+                        <div class="upload-area">
+                            <input type="file" id="qr-file-input" accept="image/*" style="display: none;">
+                            <label for="qr-file-input" class="upload-label">
+                                <span>📷 Cliquez pour sélectionner une image</span>
+                                <span class="upload-hint">ou glissez-déposez une image ici</span>
+                            </label>
+                            <div id="upload-preview" style="display: none; margin-top: 15px;">
+                                <img id="uploaded-image" style="max-width: 100%; max-height: 300px; border-radius: 8px;">
+                                <button id="scan-uploaded-btn" class="btn btn-primary" style="margin-top: 10px;">Scanner l'image</button>
+                            </div>
+                        </div>
+                        <p class="scan-hint">Téléchargez une image contenant un QR Code</p>
+                    </div>
+                </div>
+
+                <!-- Order Details (hidden by default) -->
+                <div id="order-details" class="order-details-box" style="display: none;">
+                    <h2>Détails de la Commande</h2>
+                    <div class="order-info">
+                        <div class="info-section">
+                            <h3>Code de Retrait</h3>
+                            <p class="code-display" id="display-code"></p>
+                        </div>
+
+                        <div class="info-section">
+                            <h3>Informations Client</h3>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">Nom complet:</span>
+                                    <span id="client-name"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Téléphone:</span>
+                                    <span id="client-phone"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Email:</span>
+                                    <span id="client-email"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Date de commande:</span>
+                                    <span id="order-date"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-section">
+                            <h3>Articles Commandés</h3>
+                            <table class="items-table">
+                                <thead>
+                                    <tr>
+                                        <th>Produit</th>
+                                        <th>Quantité</th>
+                                        <th>Prix</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="order-items-list">
+                                    <!-- Les articles seront chargés dynamiquement -->
+                                </tbody>
+                            </table>
+                            <div class="total-info">
+                                <p><strong>Total: <span id="order-total-display"></span></strong></p>
+                            </div>
+                        </div>
+
+                        <div class="info-section">
+                            <h3>Validation d'Identité</h3>
+                            <div class="identity-check">
+                                <label>
+                                    <input type="checkbox" id="identity-verified">
+                                    J'ai vérifié l'identité du client (pièce d'identité)
+                                </label>
+                            </div>
+                            <div class="identity-check">
+                                <label>
+                                    <input type="checkbox" id="product-delivered">
+                                    Article(s) remis au client
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button id="validate-btn" class="btn btn-success" disabled>Valider le Retrait</button>
+                            <button id="cancel-btn" class="btn btn-secondary">Annuler</button>
+                            <button id="print-btn" class="btn btn-info">Imprimer</button>
+                        </div>
+
+                        <div id="success-message" class="success-message" style="display: none;">
+                            <p>✅ Retrait validé avec succès ! Le code a été archivé.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error Message -->
+                <div id="error-message" class="error-message" style="display: none;">
+                    <p>❌ Code invalide ou déjà utilisé. Veuillez vérifier le code.</p>
+                </div>
+            </div>
+
+            <!-- Recent Orders List -->
+            <div class="recent-orders">
+                <h2>Commandes Récentes</h2>
+                <div id="recent-orders-list" class="orders-list">
+                    <!-- Les commandes récentes seront chargées dynamiquement -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Copyright © 2025 - E-shop Sécurisé.</p>
+        </div>
+    </footer>
+
+    <!-- Bibliothèque pour scanner les QR Codes -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script src="script.js"></script>
+    <script src="boutique-scan.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shop Sécurisé - Boutique</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="cart-icon"><img style="height: 85px; width: 85px;" src="Img/LOGO (2).jpg" alt=""></span>
+                <span>E-SHOP SÉCURISÉ</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">BOUTIQUE</a>
+                <a href="commande.html" class="nav-link">COMMANDE</a>
+                <a href="verifier-commande.html" class="nav-link">VÉRIFIER COMMANDE</a>
+                <a href="#" class="nav-link">MON COMPTE</a>
+                <a href="panier.html" class="nav-link">PANIER <span id="cart-count" class="cart-badge">0</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <h1>Boutique</h1>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="shop-header">
+                <p class="results-count"><span id="product-count">7</span> RÉSULTATS AFFICHÉS</p>
+                <select id="sort-select" class="sort-select">
+                    <option value="default">Tri par défaut</option>
+                    <option value="price-asc">Prix croissant</option>
+                    <option value="price-desc">Prix décroissant</option>
+                    <option value="name-asc">Nom A-Z</option>
+                </select>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Four Électrique Compact -->
+                <div class="product-card">
+                    <img src="Img/18966394.jpg" alt="Four Électrique Compact" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Lave-Vaisselle</h3>
+                        <p class="product-price">45 000 CFA</p>
+                        <button class="btn btn-primary" onclick="addToCart(1)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <!-- Blender Professionnel -->
+                <div class="product-card">
+                    <img src="Img/33057.jpg" alt="Blender Professionnel" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Machine à Laver</h3>
+                        <p class="product-price">35 000 CFA</p>
+                        <button class="btn btn-primary" onclick="addToCart(2)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <!-- Cafetière Moka Inox -->
+                <div class="product-card">
+                    <img src="Img/machine-a-cafe.jpg" alt="Cafetière Moka Inox" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Cafetière Moka Inox</h3>
+                        <p class="product-price">12 000 CFA</p>
+                        <button class="btn btn-primary" onclick="addToCart(3)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <!-- Machine à Laver Automatique -->
+                <div class="product-card">
+                    <img src="Img/5339845.jpg" alt="Machine à Laver Automatique" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Mixeur</h3>
+                        <p class="product-price">25 000 CFA</p>
+                        <button class="btn btn-primary" onclick="addToCart(4)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <!-- Lave-Vaisselle Intégré -->
+                <div class="product-card">
+                    <img src="Img/658.jpg" alt="Lave-Vaisselle Intégré" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Micro-Ondes</h3>
+                        <p class="product-price">95 000 CFA</p>
+                        <button class="btn btn-primary" onclick="addToCart(5)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <!-- Bouilloire Électrique -->
+                <div class="product-card">
+                    <img src="Img/bouilloire-et-tasse-sur-fond-de-mur.jpg" alt="Bouilloire Électrique" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Bouilloire Électrique</h3>
+                        <p class="product-price">15 000 CFA</p>
+                        <button class="btn btn-primary" onclick="addToCart(6)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <!-- Réfrigérateur Combi -->
+                <div class="product-card">
+                    <img src="Img/equipements-de-cuisine-image-du-refrigerateur-avec-de-la-nourriture-a-l-interieur.jpg" alt="Réfrigérateur Combi" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Réfrigérateur </h3>
+                        <p class="product-price">125 000 CFA</p>
+                        <button class="btn btn-primary" onclick="addToCart(7)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Copyright © 2025 - E-shop Sécurisé.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html>
+
